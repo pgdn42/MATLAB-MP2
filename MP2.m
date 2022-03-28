@@ -5,6 +5,7 @@ testInt = input(prompt);
 
 testNr = trainDigits(:,:,testInt);
 testAns = trainAns(testInt);
+
 ima(testNr)
 figure()
 
@@ -15,12 +16,24 @@ figure()
 %Centroid metoden --> medelvärde av alla 7or som en standard.
 
 %Närmaste granne metoden --> ???
+testNr2 = testNr;
+testNr3 = testNr;
 
-for i = 1:numel(testNr)
-    if (testNr(i) >= 0.5)
-        testNr(i) = 1;
+for i = 1:numel(testNr2)
+    if (testNr2(i) > 0.5)
+        testNr2(i) = 1;
     else
-        testNr(i) = 0;
+        testNr2(i) = 0;
     end
 end
-ima(testNr)
+ima(testNr2)
+figure()
+
+for i = 1:numel(testNr3)
+    if (testNr3(i) < 0.5)
+        testNr3(i) = 1;
+    else
+        testNr3(i) = 0;
+    end
+end
+ima(testNr3)
